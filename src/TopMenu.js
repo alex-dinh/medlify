@@ -4,7 +4,7 @@ import {Navbar, MenuItem, NavDropdown, Nav, NavItem} from "react-bootstrap";
 class TopMenu extends Component {
     render() {
         return (
-            <Navbar>
+            <Navbar inverse fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="#home">Soundify</a>
@@ -12,15 +12,22 @@ class TopMenu extends Component {
                 </Navbar.Header>
                 <Nav>
                     <NavItem eventKey={1} href="#">
-                        Link
+                        Playlists
                     </NavItem>
                     <NavItem eventKey={2} href="#">
-                        Link
+                        Library
                     </NavItem>
-                    <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                        <MenuItem eventKey={3.1}>Action</MenuItem>
-                        <MenuItem eventKey={3.2}>Another action</MenuItem>
-                        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                    <NavItem eventKey={2} href="#">
+                        Spotify
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        SoundCloud
+                    </NavItem>
+
+                    <NavDropdown eventKey={3} title="View" id="basic-nav-dropdown">
+                        <MenuItem eventKey={3.1}>List</MenuItem>
+                        <MenuItem eventKey={3.2}>Grid</MenuItem>
+                        <MenuItem eventKey={3.3}>Details</MenuItem>
                         <MenuItem divider />
                         <MenuItem eventKey={3.4}>Separated link</MenuItem>
                     </NavDropdown>

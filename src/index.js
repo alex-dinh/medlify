@@ -5,18 +5,20 @@ import "./TodoList";
 import TodoList from "./TodoList";
 import TopMenu from "./TopMenu";
 import MySideNav from "./Navigation.js";
+import {Grid, Row, Col} from "react-bootstrap";
+import BottomMenu from "./BottomMenu";
 
 
-var destination = document.querySelector("#container");
+const destination = document.querySelector("#container");
 
 
 ReactDOM.render(
-    <div>
+    <Grid fluid>
         <TopMenu/>
         {/*<p>Welcome to Soundify</p>*/}
         {/*<TodoList/>*/}
         <MySideNav/>
-
-    </div>,
+        <BottomMenu/>
+    </Grid>,
     destination
 );

@@ -1,23 +1,75 @@
 import React, {Component} from "react";
-import styles from "./SideBar.css";
-import SideNav, { Nav, NavIcon, NavText } from "react-sidenav";
 import SvgIcon from 'react-icons-kit';
 import {ic_business} from "react-icons-kit/md/ic_business";
 import {ic_aspect_ratio} from "react-icons-kit/md/ic_aspect_ratio";
+import {Grid, Row, Col} from "react-bootstrap";
+import {NavItem} from "react-bootstrap";
 
-const MySideNav = () => (
-    <div style={{background: '#2c3e50', color: '#FFF', width: 220}}>
-        <SideNav highlightColor='#E91E63' highlightBgColor='#00bcd4' defaultSelected='sales'>
-            <Nav id='dashboard'>
-                <NavIcon><SvgIcon size={20} icon={ic_aspect_ratio}/></NavIcon>
-                <NavText> Dashboard </NavText>
-            </Nav>
-            <Nav id='sales'>
-                <NavIcon><SvgIcon size={20} icon={ic_business}/></NavIcon>
-                <NavText> Sales </NavText>
-            </Nav>
-        </SideNav>
-    </div>
-);
+class SideNav extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-export default MySideNav;
+    getSideBar() {
+        return (<div style={{width:'20%'}}>
+            <div id="sidebar-wrapper">
+                <ul className="sidebar-nav">
+                    <li onClick={this.props.getAQuoteNavTriggered}
+                    style={{background:!this.props.searchTriggered && !this.props.showProfileView ? '#2c3e50' : 'white'}}
+                    className="sidebar-brand">
+                        <a onClick={this.props.getAQuoteNavTriggered}
+                        style={{height:'100%',textAlign:'center', color:!this.props.searchTriggered && !this.props.showProfileView ? 'white'  : '#999999' }}
+                        href="#">
+                            Get A Quote
+                        </a>
+                    </li>
+                    <li onClick={this.props.myOrderedNavTriggered}
+                    style={{background:this.props.searchTriggered && !this.props.showProfileView ? '#2c3e50' : 'white'}}
+                    className="sidebar-brand">
+                        <a onClick={this.props.myOrderedNavTriggered}
+                        style={{height:'100%',textAlign:'center', color:this.props.searchTriggered  && !this.props.showProfileView? 'white'  : '#999999' }}
+                        href="#">
+                            My Orders
+                        </a>
+                    </li>
+                    <li><NavItem eventKey={1} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={2} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={3} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                    <li><NavItem eventKey={4} href="#">Playlists</NavItem></li>
+                </ul>
+
+        </div>
+    </div>)
+  }
+  render() {
+    return (
+
+      <div style={{overflow:''}} id="wrapper">
+        {this.getSideBar()}
+      </div>
+    );
+  }
+}
+
+export default SideNav;
