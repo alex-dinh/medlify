@@ -36,9 +36,9 @@ html, body{
     width: 0;
     height: 100%;
     margin-left: -260px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     background: lightslategray;
-    border-right:1px solid #ecf0f1;
+    border-right:5px solid #1db954;
     margin-top:0;
     top:50px;
     bottom: 50px;

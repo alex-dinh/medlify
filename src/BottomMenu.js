@@ -7,7 +7,7 @@ import './SideBar.css'
 class BottomMenu extends Component {
     render() {
         return (
-            <Navbar inverse fixedBottom>
+            <Navbar inverse fixedBottom style={{borderTop: "5px ridge #1db954"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="#home">Soundify</a>

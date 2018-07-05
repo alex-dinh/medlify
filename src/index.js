@@ -2,11 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "./TodoList";
-import TodoList from "./TodoList";
 import TopMenu from "./TopMenu";
-import MySideNav from "./Navigation.js";
+import Playlists from "./pages/Playlists";
+
+import Home from "./pages/Home";
+import Library from "./pages/Library";
+import SideNav from "./Navigation.js";
 import {Grid, Row, Col} from "react-bootstrap";
 import BottomMenu from "./BottomMenu";
+// import SidebarExample from "./MainView";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 
 const destination = document.querySelector("#container");
@@ -14,11 +19,22 @@ const destination = document.querySelector("#container");
 
 ReactDOM.render(
     <Grid fluid>
-        <TopMenu/>
+        <Router>
+            <div>
+                <TopMenu/>
+                <switch>
+                    <Route exact path ="/" component={Home}/>
+                    <Route path ="/playlists" component={Playlists}/>
+                    <Route path ="/library" component={Library}/>
+                </switch>
+            </div>
+        </Router>
         {/*<p>Welcome to Soundify</p>*/}
         {/*<TodoList/>*/}
-        <MySideNav/>
+        <SideNav/>
+        {/*<SidebarExample/>*/}
         <BottomMenu/>
     </Grid>,
     destination
 );
+
