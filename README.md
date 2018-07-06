@@ -1,4 +1,4 @@
-# soundify
+# Medlify
 Solution to use both Spotify and Soundcloud playlists in the same place
 
 Important Links:
