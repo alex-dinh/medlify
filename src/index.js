@@ -21,6 +21,7 @@ ReactDOM.render(
     <Grid fluid>
         <Router>
             <div>
+                {/*Router in index allows route switching in main container*/}
                 <TopMenu/>
                 <switch>
                     <Route exact path ="/" component={Home}/>

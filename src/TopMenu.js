@@ -41,20 +41,5 @@ class TopMenu extends Component {
         );
     }
 }
-const Home = () => (
-    <div>Soundify</div>
-    // <div style={{marginLeft: "260px"}}><h2 style={{paddingTop:"30px"}}>SOUNDIFY</h2></div>
-);
-
-const Playlists = () => (
-    <div>
-        <h2 style={{paddingTop:"30px"}}>PLAYLISTS</h2>
-    </div>
-);
-
-const Library = () => (
-    <div><h2>Library</h2></div>
-);
-
 
 export default TopMenu;
