@@ -4,6 +4,9 @@ import {ic_business} from "react-icons-kit/md/ic_business";
 import {ic_aspect_ratio} from "react-icons-kit/md/ic_aspect_ratio";
 import {Grid, Row, Col} from "react-bootstrap";
 import {Nav, NavItem} from "react-bootstrap";
+import Playlists from './pages/Playlists.js'
+
+
 
 class SideNav extends React.Component {
   constructor(props) {
@@ -20,7 +23,7 @@ class SideNav extends React.Component {
                     </Nav>
                     <li><NavItem eventKey={1} href="#">Playlists</NavItem></li>
                     <li><NavItem eventKey={2} href="#">Playlists</NavItem></li>
-
+                    <Playlists/>
                 </ul>
 
         </div>

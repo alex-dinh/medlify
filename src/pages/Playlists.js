@@ -1,5 +1,6 @@
 // Playlists.js
 import React, {Component} from "react";
+import Collapsible from "react-collapsible";
 import SpotifyWebApi from "spotify-web-api-js";
 
 const spotifyApi = new SpotifyWebApi();
@@ -9,15 +10,17 @@ class Playlists extends Component {
         super();
         const params = this.getHashParams();
         console.log(params);
-
-        const token = params.access_token; // resolve this
+        const token = params.access_token;
         if (token) {
             spotifyApi.setAccessToken(token);
         }
         this.state = {
             loggedIn: token ? true : false,
             // loggedIn: !!token,
-            playlistlist: {name: 'Not Checked', playlistArt: ''}
+            // playlists: {names: [],
+            //     playlistArt: ''}
+            playlists: {names: [],
+                playlistArt: ''}
         }
     }
 
@@ -37,7 +40,7 @@ class Playlists extends Component {
         spotifyApi.getUserPlaylists()
             .then((response) => {
                 this.setState({
-                    playlistlist: {
+                    playlists: {
                         // name: response.items[0].name,
                         names: this.buildPlaylistList(response),
                         playlistArt: response.items[0].images[0].url
@@ -47,10 +50,10 @@ class Playlists extends Component {
             });
     }
 
-    buildPlaylistList(response) {
+    buildPlaylistList(response) {  // builds array of playlist information from JSON response
         let playlists = [];
         for (let i = 0; i < response.items.length; i++){
-            playlists.push(response.items[i].name)
+            playlists.push({id: i, name: response.items[i].name})
         }
         return playlists;
     }
@@ -66,20 +69,32 @@ class Playlists extends Component {
 
 
     render() {
+        this.getPlaylists();
+
         return (
             <div className={Playlists} style={{margin: "10px"}}>
                 <h2><a href='http://localhost:8888'>Playlists</a></h2>
                 <div>
-                    Playlist: { this.state.playlistlist.names }
+                    {/*Playlist: { this.state.playlists.names }*/}
+                    <Collapsible trigger="Playlists ◈">
+                    { this.state.playlists.names.map(function(playlist, i) {
+                        return(
+                            <div key={i}>
+                                {playlist.name}
+                            </div>
+                        );
+                    })}
+                    </Collapsible>
                 </div>
                 <div>
                     {/*<img src={this.state.playlistlist.playlistArt} style={{ height: 300 }}/>*/}
                 </div>
-                {this.state.loggedIn &&
-                    <button onClick={() => this.getPlaylists()}>
-                        View Playlists
-                    </button>
-                }
+
+                {/*{this.state.loggedIn &&*/}
+                    {/*<button onClick={() => this.getPlaylists()}>*/}
+                        {/*View Playlists*/}
+                    {/*</button>*/}
+                {/*}*/}
             </div>
         );
     }
