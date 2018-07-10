@@ -4,14 +4,14 @@ import {ic_business} from "react-icons-kit/md/ic_business";
 import {ic_aspect_ratio} from "react-icons-kit/md/ic_aspect_ratio";
 import {Grid, Row, Col} from "react-bootstrap";
 import {Nav, NavItem} from "react-bootstrap";
-import Playlists from './pages/Playlists.js'
+import Playlists from './pages/UserPlaylists.js'
 
 
 
 class SideNav extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+    }
 
     getSideBar() {
         return (<div style={{width:'20%'}}>
@@ -21,22 +21,19 @@ class SideNav extends React.Component {
                         <NavItem style={{textAlign:'center'}} eventKey={2} href="#">Playlists</NavItem>
                         <NavItem eventKey={2} href="#">Playlists</NavItem>
                     </Nav>
-                    <li><NavItem eventKey={1} href="#">Playlists</NavItem></li>
-                    <li><NavItem eventKey={2} href="#">Playlists</NavItem></li>
                     <Playlists/>
                 </ul>
 
         </div>
     </div>)
-  }
-  render() {
-    return (
-
-      <div style={{overflow:''}} id="wrapper">
-        {this.getSideBar()}
-      </div>
-    );
-  }
+    }
+    render() {
+        return (
+            <div style={{overflow:''}} id="wrapper">
+                {this.getSideBar()}
+            </div>
+        );
+    }
 }
 
 export default SideNav;
