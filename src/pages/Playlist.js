@@ -15,6 +15,7 @@ class Playlist extends Component{
     getPlaylistInfo(){
         // spotifyApi.getPlaylistTracks("alexladinh", this.props.id)
         spotifyApi.getPlaylistTracks("alexladinh", "4jYKMVG2SasaKq4y6385vA")
+        // spotifyApi.getPlaylistTracks("alexladinh", this.props.playlistId)
             .then((response) => {
                 console.log(response);
                 this.setState({
@@ -33,7 +34,7 @@ class Playlist extends Component{
 
     render(){
         return(
-            <div style={{overflowY: "auto", maxHeight: "75vh"}} onClick={() => this.getPlaylistInfo()}>{this.props.name}
+            <div style={{overflowY: "auto", maxHeight: "75vh"}}>{this.props.name}
                 { this.state.tracks.map(function(song, i) {
                     return(
                         <div>{song.name}</div>

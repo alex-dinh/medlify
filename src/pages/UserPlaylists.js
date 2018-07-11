@@ -2,11 +2,18 @@
 import React, {Component} from "react";
 import Collapsible from "react-collapsible";
 import SpotifyWebApi from "spotify-web-api-js";
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import Playlist from "./Playlist";
-import {Link} from 'react-router-dom';
+import {MemoryRouter, Route, Link} from "react-router-dom";
 
 const spotifyApi = new SpotifyWebApi();
+
+class PlaylistButton extends Component {
+    render(){
+        console.log(this.props);
+        return(
+            <div><Link to="/playlist">{this.props.title}</Link></div>
+        );
+    }
+}
 
 class Playlists extends Component {
     constructor(){
@@ -61,8 +68,8 @@ class Playlists extends Component {
             playlists.push({id: i, name: response.items[i].name, playlistId: response.items[i].id})
         }
         return playlists;
+        // ids stored in this.state.playlists.names[i].playlistId
     }
-
 
     playlistCovers(response) {
         let covers = [];
@@ -75,21 +82,20 @@ class Playlists extends Component {
     showPlaylists() {
         return(
             <div>
-                <Router>
-                <div>
-
                 {/*Playlist: { this.state.playlists.names }*/}
                 <Collapsible trigger="Playlists ◈">
-                { this.state.playlists.names.map(function(playlist, i) {
-                    return(
-                        // <Playlist key={i} name={playlist.name} id={playlist.playlistId}/>
-                        <div><Link to="/playlist">{playlist.name}</Link></div> // figure out how to link props based on playlist selected
-                    );
-                })}
+
+                    { this.state.playlists.names.map(function(playlist, i) {
+                        return(
+                            //<div title={playlist.name} playlistID={playlist.playlistId}>
+                            //    <Link to="/playlist">{playlist.name}</Link>
+                            //</div> // figure out how to link props based on playlist selected
+
+                            <PlaylistButton title={playlist.name} id={playlist.playlistId}/>
+                        );
+                    })}
 
                 </Collapsible>
-                </div>
-                </Router>
             </div>
         );
     }

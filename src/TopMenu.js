@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import {Navbar, MenuItem, NavDropdown, Nav, NavItem} from "react-bootstrap";
-// import {hello} from "./MainView.js";
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
-import {Grid, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 
 class TopMenu extends Component {
@@ -20,10 +18,10 @@ class TopMenu extends Component {
                     </NavItem>
 
                     <NavItem eventKey={2} href="#">
-                        <Link to="/library"> Library</Link>
+                        <Link to="/library">Library</Link>
                     </NavItem>
                     <NavItem eventKey={3} href="#">
-                        Spotify
+                        <Link to="/zzzzz">Spotify</Link>
                     </NavItem>
                     <NavItem eventKey={4} href="#">
                         SoundCloud
