@@ -24,7 +24,7 @@ class TopMenu extends Component {
                         <Link to="/zzzzz">Spotify</Link>
                     </NavItem>
                     <NavItem eventKey={4} href="#">
-                        SoundCloud
+                        <Link to="/playlist/0BwWIFmeMnotIOgwVMEoMy">SoundCloud</Link>
                     </NavItem>
 
                     <NavDropdown eventKey={3} title="View" id="basic-nav-dropdown">

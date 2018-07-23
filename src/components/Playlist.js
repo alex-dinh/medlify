@@ -18,9 +18,9 @@ class Playlist extends Component{
 
     getPlaylistInfo(){
 
-        // spotifyApi.getPlaylistTracks("alexladinh", this.props.id)
+        spotifyApi.getPlaylistTracks("alexladinh", this.props.match.params.id)
         // spotifyApi.getPlaylistTracks("alexladinh", "4jYKMVG2SasaKq4y6385vA")
-        spotifyApi.getPlaylistTracks("alexladinh", this.props.playlistId)
+        // spotifyApi.getPlaylistTracks("alexladinh", this.props.playlistId)
             .then((response) => {
                 console.log(response);
 
@@ -71,3 +71,8 @@ class Playlist extends Component{
 }
 
 export default Playlist;
+// export default ({match: {params: {id}}}) =>
+//     <div>
+//         <h1 style={{position: "fixed", top: "50%", bottom: "50%", marginTop: "-50px", marginLeft: "-100px"}}>{id}</h1>
+//         <Playlist playlistId={id}/>
+//     </div>;

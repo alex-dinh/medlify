@@ -1,6 +1,6 @@
 // Playlists.js
 import React, {Component} from "react";
-import Collapsible from "react-collapsible";
+// import Collapsible from "react-collapsible";
 import SpotifyWebApi from "spotify-web-api-js";
 import {MemoryRouter, Route, Link} from "react-router-dom";
 import Playlist from "./Playlist";
@@ -13,7 +13,11 @@ class PlaylistButton extends Component {
     render(){
         return(
             //<div><Link to="/playlist">{this.props.title}</Link></div>
-            <div><Link to={this.props.url}>{this.props.title}</Link></div>
+            <div>
+                <Link to={this.props.url}>{this.props.title}</Link>
+                {this.props.children}
+            </div>
+
         );
     }
 }
@@ -92,7 +96,7 @@ class Playlists extends Component {
                     { this.state.playlists.names.map(function(playlist, i) {
                         return(
                             <PlaylistButton ref = {"playlist" + i}
-                                            url={"/"+playlist.playlistId}
+                                            url={"/playlist/"+playlist.playlistId}
                                             title={playlist.name}
                                             id={playlist.playlistId}/>
                             // id should be renamed to something else
@@ -101,15 +105,18 @@ class Playlists extends Component {
                     <switch>
                         { this.state.playlists.names.map(function(playlist, i) {
                             return(
-                                <Route path={"/"+playlist.playlistId}
+                                <Route path={"/playlist/"+playlist.playlistId}
                                        render={(props) => <Playlist {...props} playlistId={playlist.playlistId}/>}
                                 />
                             );
                         })}
+
+                        {/*Block above generates playlist within sidebar*/}
                     </switch>
                 </div>
                 </MemoryRouter>
                 {/*</Collapsible>*/}
+                {this.props.children}
             </div>
         );
     }
@@ -120,12 +127,10 @@ class Playlists extends Component {
 
     render() {
         let ids = this.state.playlists.ids;
-        console.log(ids);
         return (
             <div className={Playlists} style={{margin: "10px", overflowY: "scroll", maxHeight: "60vh"}}>
                 <h2><a href='http://localhost:8888'>Playlists</a></h2>
                 {this.showPlaylists()}
-
                 <div>
                     {/*<img src={this.state.playlistlist.playlistArt} style={{ height: 300 }}/>*/}
                 </div>
