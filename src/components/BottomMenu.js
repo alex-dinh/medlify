@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Navbar, Nav} from "react-bootstrap";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosSkipforward} from 'react-icons-kit/ionicons/';
-import '../SideBar.css'
+import '../styles.css'
 
 class BottomMenu extends Component {
     render() {

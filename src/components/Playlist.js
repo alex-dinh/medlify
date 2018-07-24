@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
-// import {Link} from "react-router-dom";
 
 class Playlist extends Component{
     constructor(props){
@@ -11,15 +10,20 @@ class Playlist extends Component{
         };
 
     }
+
     componentDidMount(){
-        console.log(this.props.playlistId);
         this.getPlaylistInfo(); // for when button works properly
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.match.params.id !== prevProps.match.params.id){
+            this.getPlaylistInfo();
+        }
     }
 
     getPlaylistInfo(){
 
         spotifyApi.getPlaylistTracks("alexladinh", this.props.match.params.id)
-        // spotifyApi.getPlaylistTracks("alexladinh", "4jYKMVG2SasaKq4y6385vA")
         // spotifyApi.getPlaylistTracks("alexladinh", this.props.playlistId)
             .then((response) => {
                 console.log(response);
@@ -33,20 +37,38 @@ class Playlist extends Component{
     static buildTracklist(response){
         let tracks = [];
         for (let i = 0; i < response.items.length; i++){
-            tracks.push({id: i, name: response.items[i].track.name});
+            tracks.push({
+                id: i,
+                name: response.items[i].track.name,
+                artist: response.items[i].track.artists[0].name,
+                album: response.items[i].track.album.name,
+            });
         }
         return tracks;
     }
 
     render(){
         return(
-            <div style={{overflowY: "auto", maxHeight: "75vh"}}>{this.props.name}
+            <table id="playlisttable">
+                {this.props.name}
+                <tbody>
+                    <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                    </tr>
+
                 { this.state.tracks.map(function(song, i) {
                     return(
-                        <div key={i}>{song.name}</div>
+                        <tr>
+                            <td key={i}>{song.name}</td>
+                            <td key={i}>{song.artist}</td>
+                            <td key={i}>{song.album}</td>
+                        </tr>
                     );
                 })}
-            </div>
+                </tbody>
+            </table>
 
         );
     }

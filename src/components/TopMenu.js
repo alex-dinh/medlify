@@ -9,22 +9,22 @@ class TopMenu extends Component {
             <Navbar inverse fixedTop style={{borderBottom: "5px ridge #ff7700"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">Listify</Link>
+                        <Link to="/" className="link">Medlify</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav bsStyle="pills" activeKey={1}>
                     <NavItem eventKey={1}>
-                        <Link to="/playlists">Playlists</Link>
+                        <Link to="/playlists" className="link">Playlists</Link>
                     </NavItem>
 
                     <NavItem eventKey={2} href="#">
-                        <Link to="/library">Library</Link>
+                        <Link to="/library" className="link">Library</Link>
                     </NavItem>
                     <NavItem eventKey={3} href="#">
-                        <Link to="/zzzzz">Spotify</Link>
+                        <Link to="/zzzzz" className="link">Spotify</Link>
                     </NavItem>
                     <NavItem eventKey={4} href="#">
-                        <Link to="/playlist/0BwWIFmeMnotIOgwVMEoMy">SoundCloud</Link>
+                        <Link to="/playlist/0BwWIFmeMnotIOgwVMEoMy" className="link">SoundCloud</Link>
                     </NavItem>
 
                     <NavDropdown eventKey={3} title="View" id="basic-nav-dropdown">

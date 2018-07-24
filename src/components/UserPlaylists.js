@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 // import Collapsible from "react-collapsible";
 import SpotifyWebApi from "spotify-web-api-js";
-import {MemoryRouter, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Playlist from "./Playlist";
 // import Library from "./Library";
 // import Home from "./Home";
@@ -14,7 +14,11 @@ class PlaylistButton extends Component {
         return(
             //<div><Link to="/playlist">{this.props.title}</Link></div>
             <div>
-                <Link to={this.props.url}>{this.props.title}</Link>
+                <Link to={this.props.url}
+                      style={{ textDecoration: 'none' }}
+                      className="link">
+                    {this.props.title}
+                </Link>
                 {this.props.children}
             </div>
 
@@ -91,8 +95,7 @@ class Playlists extends Component {
             <div>
                 {/*Playlist: { this.state.playlists.names }*/}
                 {/*<Collapsible trigger="Playlists ◈">*/}
-                <MemoryRouter>
-                <div>
+                <table id="playlisttable">
                     { this.state.playlists.names.map(function(playlist, i) {
                         return(
                             <PlaylistButton ref = {"playlist" + i}
@@ -102,19 +105,8 @@ class Playlists extends Component {
                             // id should be renamed to something else
                         );
                     })}
-                    <switch>
-                        { this.state.playlists.names.map(function(playlist, i) {
-                            return(
-                                <Route path={"/playlist/"+playlist.playlistId}
-                                       render={(props) => <Playlist {...props} playlistId={playlist.playlistId}/>}
-                                />
-                            );
-                        })}
 
-                        {/*Block above generates playlist within sidebar*/}
-                    </switch>
-                </div>
-                </MemoryRouter>
+                </table>
                 {/*</Collapsible>*/}
                 {this.props.children}
             </div>
