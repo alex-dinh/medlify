@@ -61,9 +61,9 @@ class Playlist extends Component{
                 { this.state.tracks.map(function(song, i) {
                     return(
                         <tr>
-                            <td key={i}>{song.name}</td>
-                            <td key={i}>{song.artist}</td>
-                            <td key={i}>{song.album}</td>
+                            <td key={"name"+i}>{song.name}</td>
+                            <td key={"artist"+i}>{song.artist}</td>
+                            <td key={"song"+i}>{song.album}</td>
                         </tr>
                     );
                 })}
