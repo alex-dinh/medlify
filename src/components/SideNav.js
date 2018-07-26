@@ -22,7 +22,7 @@ class SideNav extends Component {
     }
 
     testref() {
-        console.log(this.refs.pl.state.playlists.names);
+        // console.log(this.refs.pl.state.playlists.names);
         this.setState({
             info: this.refs.pl.state.playlists.names
         });

@@ -95,7 +95,7 @@ class Playlists extends Component {
             <div>
                 {/*Playlist: { this.state.playlists.names }*/}
                 {/*<Collapsible trigger="Playlists ◈">*/}
-                <table id="playlisttable">
+                <table id="userplaylists">
                     { this.state.playlists.names.map(function(playlist, i) {
                         return(
                             <PlaylistButton ref = {"playlist" + i}
