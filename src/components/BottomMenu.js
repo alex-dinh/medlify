@@ -3,6 +3,7 @@ import {Navbar, Nav} from "react-bootstrap";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosSkipforward} from 'react-icons-kit/ionicons/';
 import '../styles.css'
+import WebPlayer from './WebPlayer';
 
 
 class BottomMenu extends Component {
@@ -20,31 +21,21 @@ class BottomMenu extends Component {
 
     render() {
         return (
-            <Navbar inverse fixedBottom style={{borderTop: "5px ridge #1db954"}}>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="#home">Soundify</a>
-                    </Navbar.Brand>
-                </Navbar.Header>
+            <Navbar inverse fixedBottom style={{borderTop: "5px ridge #1db954", height: "80px"}}>
+
                 <Nav>
-                    {/*NavItem implentation, unknown how to change colors*/}
-                    {/*<NavItem eventKey={2} href="#">*/}
-                        {/*<SvgIcon size={32} icon={iosPlayOutline}/>*/}
-                    {/*</NavItem>*/}
-
-                    {/*inline styling requires double brackets bc returning an object*/}
-                    <div class="inlineitems" style={{ color: '#F4A261', padding: "5px 5px 5px"}} >
-                        <SvgIcon size={32} icon={iosRewind} onClick={() => this.onPrevClick()}/>
-                    </div>
-                    <div class="inlineitems" style={{ color: '#2A9D8F' }}>
-                        <SvgIcon size={32} icon={iosPlay} onClick={() => this.onPlayClick()}/>
-                    </div>
-                    <div class="inlineitems" style={{ color: '#E9C46A' }}>
-                        <SvgIcon size={32} icon={iosSkipforward} onClick={() => this.onNextClick()}/>
-                    </div>
-
-
+                    <div><WebPlayer/></div>
+                    {/*<div class="inlineitems" style={{ color: '#F4A261', padding: "5px 5px 5px", float: "center"}} >*/}
+                        {/*<SvgIcon size={32} icon={iosRewind} onClick={() => this.onPrevClick()}/>*/}
+                    {/*</div>*/}
+                    {/*<div class="inlineitems" style={{ color: '#2A9D8F', float: "center" }}>*/}
+                        {/*<SvgIcon size={32} icon={iosPlay} onClick={() => this.onPlayClick()}/>*/}
+                    {/*</div>*/}
+                    {/*<div class="inlineitems" style={{ color: '#E9C46A', float: "center" }}>*/}
+                        {/*<SvgIcon size={32} icon={iosSkipforward} onClick={() => this.onNextClick()}/>*/}
+                    {/*</div>*/}
                 </Nav>
+
             </Navbar>
         );
     }

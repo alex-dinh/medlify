@@ -13,6 +13,7 @@ import BottomMenu from "./components/BottomMenu";
 import {Route, MemoryRouter} from "react-router-dom";
 import WebPlayer from "./components/WebPlayer";
 
+
 class App extends Component {
     render(){
 
@@ -23,7 +24,7 @@ class App extends Component {
                         {/*Router in index allows route switching in main container*/}
                         <TopMenu/>
                         <SideNav ref="sn" player={this.player}/>
-                        <WebPlayer/>
+                        {/*<WebPlayer/>*/}
 
                         <switch>
                             <Route exact path ="/" component={Home}/>
@@ -40,6 +41,8 @@ class App extends Component {
                 <BottomMenu/>
 
             </Grid>
+
+
         );
     }
 }

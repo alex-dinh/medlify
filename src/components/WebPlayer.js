@@ -1,22 +1,48 @@
 import React, {Component} from 'react';
+import SpotifyWebApi from "spotify-web-api-js";
+import SvgIcon from 'react-icons-kit';
+import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
+
+const spotifyApi = new SpotifyWebApi();
+
+
 
 class WebPlayer extends Component{
     constructor(props){
         super(props);
+        const params = this.getHashParams();
+        const token = params.access_token;
+        if (token) {
+            spotifyApi.setAccessToken(token);
+        }
+
         this.state = {
-            token: "",
+            token: token,
             deviceId: "",
             loggedIn: false,
             error: "",
             trackName: "Track Name",
             artistName: "Artist Name",
             albumName: "Album Name",
+            albumArt: "",
             playing: false,
             position: 0,
             duration: 0,
         };
 
         this.playerCheckInterval = null;
+    }
+
+    getHashParams() { //"function can be static"
+        let hashParams = {};
+        let e, r = /([^&;=]+)=?([^&;]*)/g,
+            q = window.location.hash.substring(1);
+        e = r.exec(q);
+        while (e){
+            hashParams[e[1]] = decodeURIComponent(e[2]);
+            e = r.exec(q);
+        }
+        return hashParams;
     }
 
     checkForPlayer() {
@@ -36,6 +62,10 @@ class WebPlayer extends Component{
             // finally, connects here!
             this.player.connect();
         }
+    }
+
+    componentDidMount() {
+        this.handleLogin();
     }
 
     handleLogin() {
@@ -91,6 +121,7 @@ class WebPlayer extends Component{
                 artistName,
                 playing
             });
+            this.getAlbumArt();
         }
     }
 
@@ -106,6 +137,17 @@ class WebPlayer extends Component{
         this.player.nextTrack();
     }
 
+    getAlbumArt() {
+        spotifyApi.getMyCurrentPlaybackState()
+            .then((response) => {
+                if(response.item) {
+                    this.setState({
+                        albumArt: response.item.album.images[0].url
+                    });
+                }
+            })
+    }
+
     transferPlaybackHere() {
         // automatically switches the Spotify device to Medlify (this app)
         const { deviceId, token } = this.state;
@@ -117,7 +159,7 @@ class WebPlayer extends Component{
             },
             body: JSON.stringify({
                 "device_ids": [ deviceId ],
-                "play": true,
+                "play": false,
             }),
         });
     }
@@ -129,6 +171,7 @@ class WebPlayer extends Component{
             artistName,
             trackName,
             albumName,
+            albumArt,
             error,
             position,
             duration,
@@ -138,35 +181,41 @@ class WebPlayer extends Component{
         return(
             <div className="App">
                 <div className="App-header">
-                    <h2>Now Playing</h2>
+                    {/*<h2>Now Playing</h2>*/}
                 </div>
 
                 {loggedIn ?
-                (<div>
-                    <p>Artist: {artistName}</p>
-                    <p>Track: {trackName}</p>
-                    <p>Album: {albumName}</p>
-                    <p>
-                    <button onClick={() => this.onPrevClick()}>Previous</button>
-                    <button onClick={() => this.onPlayClick()}>{playing ? "Pause" : "Play"}</button>
-                    <button onClick={() => this.onNextClick()}>Next</button>
+                (<div id="player">
+                    <div class="inlineitems" id="songinfo">
+                        <img src={this.state.albumArt} style={{ height: 50 }}/>
+                    </div>
+
+                    <div class="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>
+                    <div>{trackName}</div>
+                    <div>{artistName}</div>
+
+                    </div>
+                    {/*<p>Album: {albumName}</p>*/}
+                    <p class="inlineitems">
+                    {/*<button onClick={() => this.onPrevClick()}>Previous</button>*/}
+                    {/*<button onClick={() => this.onPlayClick()}>{playing ? "Pause" : "Play"}</button>*/}
+                    {/*<button onClick={() => this.onNextClick()}>Next</button>*/}
+                    <div class="inlineitems" style={{ color: '#ffa652', marginLeft: "-50px"}} id="playerbutton">
+                        <SvgIcon size={40} icon={iosRewind} onClick={() => this.onPrevClick()}/>
+                    </div>
+                    <div class="inlineitems" style={{ color: '#00b30a'}} id="playerbutton">
+                        {playing ?
+                            <SvgIcon size={40} icon={iosPause} onClick={() => this.onPlayClick()}/>:
+                            <SvgIcon size={40} icon={iosPlay} onClick={() => this.onPlayClick()}/>
+                        }
+                    </div>
+                    <div class="inlineitems" style={{ color: '#ffa652', marginLeft: "50px"}} id="playerbutton">
+                        <SvgIcon size={40} icon={iosFastforward} onClick={() => this.onNextClick()}/>
+                    </div>
                     </p>
                 </div>)
                 :
                 (<div>
-
-                    <p className="App-intro">
-                        Enter your Spotify access token. Get it from{" "}
-                        <a href="https://beta.developer.spotify.com/documentation/web-playback-sdk/quick-start/#authenticating-with-spotify">
-                            here
-                        </a>.
-                    </p>
-                    <p>
-                        <input type="text" value={token} onChange={e => this.setState({token: e.target.value})}/>
-                    </p>
-                    <p>
-                        <button onClick={() => this.handleLogin()}>Go</button>
-                    </p>
                 </div>)
                 }
             </div>

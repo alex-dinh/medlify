@@ -28,7 +28,8 @@ class SideNav extends Component {
         });
     }
 
-    getSideBar() {
+    // sidebar from react example, unnecessary complexity through use of <Nav> and <NavItem>
+    getSideBar_old() {
         return (
         <div style={{width:'20%'}}>
             <div onClick={() => this.testref()} id="sidebar-wrapper">
@@ -42,6 +43,17 @@ class SideNav extends Component {
 
             </div>
         </div>);
+    }
+
+    // pure html/css example, much simpler
+    getSideBar() {
+        return (
+            <div className="sidebar">
+                <ul className="nav nav-sidebar">
+                    <Playlists ref="pl"/>
+                </ul>
+            </div>
+        );
     }
 
     render() {

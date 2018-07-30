@@ -1,11 +1,7 @@
 // Playlists.js
 import React, {Component} from "react";
-// import Collapsible from "react-collapsible";
 import SpotifyWebApi from "spotify-web-api-js";
 import {Link} from "react-router-dom";
-import Playlist from "./Playlist";
-// import Library from "./Library";
-// import Home from "./Home";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -120,7 +116,7 @@ class Playlists extends Component {
     render() {
         let ids = this.state.playlists.ids;
         return (
-            <div className={Playlists} style={{margin: "10px", overflowY: "scroll", maxHeight: "60vh"}}>
+            <div className={Playlists} style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
                 <h2><a href='http://localhost:8888'>Playlists</a></h2>
                 {this.showPlaylists()}
                 <div>
