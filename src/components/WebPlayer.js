@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SpotifyWebApi from "spotify-web-api-js";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
+import {ProgressBar} from 'react-bootstrap';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -73,7 +74,6 @@ class WebPlayer extends Component{
             this.setState({loggedIn: true});
             // check every second for the player
             this.playerCheckInterval = setInterval(() => this.checkForPlayer(), 1000);
-
         }
     }
 
@@ -122,11 +122,14 @@ class WebPlayer extends Component{
                 playing
             });
             this.getAlbumArt();
+            this.getPlaybackProgress();
         }
     }
 
     onPrevClick() {
         this.player.previousTrack();
+        // spotifyApi.skipToPrevious({})
+        //     .then((response) => {})
     }
 
     onPlayClick() {
@@ -135,6 +138,8 @@ class WebPlayer extends Component{
 
     onNextClick() {
         this.player.nextTrack();
+        // spotifyApi.skipToNext({})
+        //     .then((response) => {})
     }
 
     getAlbumArt() {
@@ -164,6 +169,20 @@ class WebPlayer extends Component{
         });
     }
 
+    getPlaybackProgress() { // for progress bar
+        spotifyApi.getMyCurrentPlaybackState()
+            .then((response) => {
+                console.log(response);
+                if (response.item) {
+                    this.setState({
+                        position: response.progress_ms,
+                        duration: response.item.duration_ms
+                    })
+                }
+            });
+
+    }
+
     render(){
         const {
             token,
@@ -187,12 +206,14 @@ class WebPlayer extends Component{
                 {loggedIn ?
                 (<div id="player">
                     <div class="inlineitems" id="songinfo">
-                        <img src={this.state.albumArt} style={{ height: 50 }}/>
+                        <img src={albumArt} style={{ height: 50 }}/>
                     </div>
 
                     <div class="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>
                     <div>{trackName}</div>
                     <div>{artistName}</div>
+                    {/*<div>position:{position} / {duration} duration</div>*/}
+
 
                     </div>
                     {/*<p>Album: {albumName}</p>*/}
@@ -213,9 +234,11 @@ class WebPlayer extends Component{
                         <SvgIcon size={40} icon={iosFastforward} onClick={() => this.onNextClick()}/>
                     </div>
                     </p>
+                    <ProgressBar bsStyle="success" striped active now={position/duration*100}/>
                 </div>)
                 :
                 (<div>
+                    <h1>Please log in to use Medlify</h1>
                 </div>)
                 }
             </div>

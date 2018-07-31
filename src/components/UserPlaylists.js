@@ -8,7 +8,6 @@ const spotifyApi = new SpotifyWebApi();
 class PlaylistButton extends Component {
     render(){
         return(
-            //<div><Link to="/playlist">{this.props.title}</Link></div>
             <div>
                 <Link to={this.props.url}
                       style={{ textDecoration: 'none' }}
