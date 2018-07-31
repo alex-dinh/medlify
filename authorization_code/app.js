@@ -52,7 +52,7 @@ app.get('/login', function(req, res) {
       'playlist-read-private ' +
       'playlist-read-collaborative ' +
       'streaming ' +
-      'user-read-birthdate' +
+      'user-read-birthdate ' +
       'user-modify-playback-state';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({

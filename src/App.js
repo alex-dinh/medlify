@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "./index.css";
-import "./TodoList";
 import TopMenu from "./components/TopMenu";
 import Playlists from "./components/UserPlaylists";
 import Playlist from "./components/Playlist";
