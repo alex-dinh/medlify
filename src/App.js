@@ -18,23 +18,18 @@ class App extends Component {
 
         return(
             <Grid fluid>
-                <MemoryRouter initialEntries={['/','playlists','library']} initialIndex={0}>
+                <MemoryRouter initialEntries={['/']} initialIndex={0}>
                     <div>
                         {/*Router in index allows route switching in main container*/}
                         <TopMenu/>
                         <SideNav ref="sn" player={this.player}/>
                         {/*<WebPlayer/>*/}
+                        <Route exact path ="/" component={Home}/>
+                        <Route path="/playlists" component={Playlists}/>
+                        <Route path="/library" component={Library}/>
+                        <Route path ="/zzzzz" render={() => <Playlist playlistId="4jYKMVG2SasaKq4y6385vA"/>}/>
+                        <Route exact path ="/playlist/:id" render={props => <Playlist {...props}/>}/>
 
-                        <switch>
-                            <Route exact path ="/" component={Home}/>
-                            <Route path="/playlists" component={Playlists}/>
-                            <Route path="/library" component={Library}/>
-                            <Route path ="/zzzzz" render={() => <Playlist playlistId="4jYKMVG2SasaKq4y6385vA"/>}/>
-                            <Route exact path ="/playlist/:id" render={props => <Playlist {...props}/>}/>
-
-
-
-                        </switch>
                     </div>
                 </MemoryRouter>
                 <BottomMenu/>

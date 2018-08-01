@@ -23,7 +23,6 @@ class Playlist extends Component{
         }
     }
 
-
     getPlaylistInfo() {
         /* leaving as empty string returns user who granted access
         *  does putting in the user id even matter?? */
@@ -65,11 +64,8 @@ class Playlist extends Component{
         return uris;
     }
 
-
     playSong(uri){ // NOTE: cannot have both uri and uri_context at the same time
-        // spotifyApi.play({"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh"]})
         spotifyApi.play({
-            // "uris": [uri],
             "uris": this.state.track_uris,
             "offset": {"uri": uri}
         })
@@ -78,20 +74,16 @@ class Playlist extends Component{
             })
             .catch(error => console.log('API call failed', error))
     }
-    // playSong(uri){ // NOTE: cannot have both uri and uri_context at the same time
-    //     // spotifyApi.play({"uris": ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh"]})
-    //     spotifyApi.play({
-    //         // "uris": [uri],
-    //         "uris": this.state.uris,
-    //         "offset": {"position": }
-    //         // "uri_context"
-    //     })
-    //         .then((response) => {
-    //             console.log(response);
-    //         })
-    //         .catch(error => console.log('API call failed', error))
-    // }
 
+    static formatTrackLength(len) {
+        const minutes = Math.floor(len/60000);
+        const seconds = Math.round((len/1000)%60);
+        if (seconds < 10) {
+            return minutes.toString() + ':0' + seconds.toString();
+        } else {
+            return minutes.toString() + ':' + seconds.toString();
+        }
+    }
 
     render(){
         return(
@@ -104,6 +96,7 @@ class Playlist extends Component{
                             <th onClick={() => this.playSong()}>Song</th>
                             <th>Artist</th>
                             <th>Album</th>
+                            <th>Track Length</th>
                         </tr>
 
                     { this.state.tracks.map((song, i) => (
@@ -111,6 +104,7 @@ class Playlist extends Component{
                                 <td onClick={() => this.playSong(song.uri)} key={"name"+i}>{song.name}</td>
                                 <td key={"artist"+i}>{song.artist}</td>
                                 <td key={"song"+i}>{song.album}</td>
+                                <td key={"length"+i}>{Playlist.formatTrackLength(song.duration)}</td>
                             </tr>
                     ))}
                     </tbody>

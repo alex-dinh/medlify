@@ -47,7 +47,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className={Home} style={{margin: "10px"}}>
+            <div className="Home" style={{margin: "10px"}}>
                 <h2><a href='http://localhost:8888'>Soundify</a></h2>
                 <div>
                     Now Playing: { this.state.nowPlaying.name }

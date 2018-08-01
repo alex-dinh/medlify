@@ -60,7 +60,6 @@ class SideNav extends Component {
         return (
             <div style={{overflow:''}} id="wrapper">
                 {this.getSideBar()}
-                {this.props.children}
             </div>
         );
     }

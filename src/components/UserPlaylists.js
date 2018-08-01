@@ -14,7 +14,6 @@ class PlaylistButton extends Component {
                       className="link">
                     {this.props.title}
                 </Link>
-                {this.props.children}
             </div>
 
         );
@@ -90,18 +89,16 @@ class Playlists extends Component {
             <div>
                 {/*Playlist: { this.state.playlists.names }*/}
                 {/*<Collapsible trigger="Playlists ◈">*/}
-                <table id="userplaylists">
-                    { this.state.playlists.names.map(function(playlist, i) {
-                        return(
-                            <PlaylistButton ref = {"playlist" + i}
-                                            url={"/playlist/"+playlist.playlistId}
-                                            title={playlist.name}
-                                            id={playlist.playlistId}/>
-                            // id should be renamed to something else
-                        );
-                    })}
+                { this.state.playlists.names.map(function(playlist, i) {
+                    return(
+                        <PlaylistButton key = {"playlist" + i}
+                                        url={"/playlist/"+playlist.playlistId}
+                                        title={playlist.name}
+                                        id={playlist.playlistId}/>
+                        // id should be renamed to something else
+                    );
+                })}
 
-                </table>
                 {/*</Collapsible>*/}
                 {this.props.children}
             </div>
@@ -115,7 +112,7 @@ class Playlists extends Component {
     render() {
         let ids = this.state.playlists.ids;
         return (
-            <div className={Playlists} style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
+            <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
                 <h2><a href='http://localhost:8888'>Playlists</a></h2>
                 {this.showPlaylists()}
                 <div>

@@ -20,12 +20,7 @@ class TopMenu extends Component {
                     <NavItem eventKey={2} href="#">
                         <Link to="/library" className="link">Library</Link>
                     </NavItem>
-                    <NavItem eventKey={3} href="#">
-                        <Link to="/zzzzz" className="link">Spotify</Link>
-                    </NavItem>
-                    <NavItem eventKey={4} href="#">
-                        <Link to="/playlist/0BwWIFmeMnotIOgwVMEoMy" className="link">SoundCloud</Link>
-                    </NavItem>
+
 
                     <NavDropdown eventKey={3} title="View" id="basic-nav-dropdown">
                         <MenuItem eventKey={3.1}>List</MenuItem>

@@ -3,9 +3,9 @@ import SpotifyWebApi from "spotify-web-api-js";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
 import {ProgressBar} from 'react-bootstrap';
+import {Progress} from 'semantic-ui-react';
 
 const spotifyApi = new SpotifyWebApi();
-
 
 
 class WebPlayer extends Component{
@@ -67,6 +67,10 @@ class WebPlayer extends Component{
 
     componentDidMount() {
         this.handleLogin();
+        this.interval = setInterval(() => this.getPlaybackProgress(), 1000)
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     handleLogin() {
@@ -88,6 +92,7 @@ class WebPlayer extends Component{
 
         // Playback status updates
         this.player.on('player_state_changed', state => this.onStateChanged(state));
+
 
         // Ready
         this.player.on('ready', async data => {
@@ -114,15 +119,14 @@ class WebPlayer extends Component{
                 .join(", ");
             const playing = !state.paused;
             this.setState({
-                position,
-                duration,
+                position: state.position,
+                duration: state.duration,
                 trackName,
                 albumName,
                 artistName,
                 playing
             });
             this.getAlbumArt();
-            this.getPlaybackProgress();
         }
     }
 
@@ -180,7 +184,6 @@ class WebPlayer extends Component{
                     })
                 }
             });
-
     }
 
     render(){
@@ -205,36 +208,31 @@ class WebPlayer extends Component{
 
                 {loggedIn ?
                 (<div id="player">
-                    <div class="inlineitems" id="songinfo">
+                    <div className="inlineitems" id="songinfo">
                         <img src={albumArt} style={{ height: 50 }}/>
                     </div>
 
-                    <div class="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>
+                    <div className="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>
                     <div>{trackName}</div>
                     <div>{artistName}</div>
                     {/*<div>position:{position} / {duration} duration</div>*/}
 
-
                     </div>
-                    {/*<p>Album: {albumName}</p>*/}
-                    <p class="inlineitems">
-                    {/*<button onClick={() => this.onPrevClick()}>Previous</button>*/}
-                    {/*<button onClick={() => this.onPlayClick()}>{playing ? "Pause" : "Play"}</button>*/}
-                    {/*<button onClick={() => this.onNextClick()}>Next</button>*/}
-                    <div class="inlineitems" style={{ color: '#ffa652', marginLeft: "-50px"}} id="playerbutton">
+                    <p className="inlineitems">
+                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "-50px"}} id="playerbutton">
                         <SvgIcon size={40} icon={iosRewind} onClick={() => this.onPrevClick()}/>
                     </div>
-                    <div class="inlineitems" style={{ color: '#00b30a'}} id="playerbutton">
+                    <div className="inlineitems" style={{ color: '#00b30a'}} id="playerbutton">
                         {playing ?
                             <SvgIcon size={40} icon={iosPause} onClick={() => this.onPlayClick()}/>:
                             <SvgIcon size={40} icon={iosPlay} onClick={() => this.onPlayClick()}/>
                         }
                     </div>
-                    <div class="inlineitems" style={{ color: '#ffa652', marginLeft: "50px"}} id="playerbutton">
-                        <SvgIcon size={40} icon={iosFastforward} onClick={() => this.onNextClick()}/>
+                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "50px"}} id="playerbutton">
+                        <SvgIcon size={40} icon={iosFastforward} onClick={() => this.getPlaybackProgress()}/>
                     </div>
                     </p>
-                    <ProgressBar bsStyle="success" striped active now={position/duration*100}/>
+                    <Progress id="songprogress" size='medium' inverted color='green' percent={position/duration*100}/>
                 </div>)
                 :
                 (<div>

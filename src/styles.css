@@ -92,6 +92,7 @@ body{
     overflow: auto;
     height: 60vh;
     display: block;
+    position: absolute;
 }
 
 .link {
@@ -122,5 +123,17 @@ body{
 #playerbutton {
     display: inline-block;
     position: absolute;
+}
+
+#playerbutton :hover {
+    color: white
+}
+
+#songprogress {
+    width: 525px;
+    position: absolute;
+    left: 285px;
+    bottom: 4px;
+
 }
 
