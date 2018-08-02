@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import WebPlayer from "./WebPlayer";
 let querystring = require('querystring');
+import {connect} from 'react-redux';
+
 
 class Login extends Component {
+
     static generateRandomString(length) {
         let text = '';
         let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -36,6 +39,16 @@ class Login extends Component {
                 redirect_uri: redirect_uri,
                 state: state
             }));
+    }
+
+
+
+    handleLogIn(e, {name}) {
+
+    }
+
+    handleLogOut(e, {name}) {
+
     }
 
     render(){

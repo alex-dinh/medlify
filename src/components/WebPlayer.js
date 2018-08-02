@@ -220,7 +220,7 @@ class WebPlayer extends Component{
 
                     </div>
                     <p className="inlineitems">
-                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "-50px"}} id="playerbutton">
+                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "-70px"}} id="playerbutton">
                         <SvgIcon size={40} icon={iosRewind} onClick={() => this.onPrevClick()}/>
                     </div>
                     <div className="inlineitems" style={{ color: '#00b30a'}} id="playerbutton">
@@ -229,11 +229,11 @@ class WebPlayer extends Component{
                             <SvgIcon size={40} icon={iosPlay} onClick={() => this.onPlayClick()}/>
                         }
                     </div>
-                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "50px"}} id="playerbutton">
+                    <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "70px"}} id="playerbutton">
                         <SvgIcon size={40} icon={iosFastforward} onClick={() => this.getPlaybackProgress()}/>
                     </div>
                     </p>
-                    <Progress id="songprogress" size='medium' inverted color='green' percent={position/duration*100}/>
+                    <Progress id="songprogress" inverted color='green' percent={position/duration*100}/>
                 </div>)
                 :
                 (<div>
