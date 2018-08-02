@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import SpotifyWebApi from "spotify-web-api-js";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
-import {ProgressBar} from 'react-bootstrap';
 import {Progress} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -69,6 +69,7 @@ class WebPlayer extends Component{
         this.handleLogin();
         this.interval = setInterval(() => this.getPlaybackProgress(), 1000)
     }
+
     componentWillUnmount() {
         clearInterval(this.interval);
     }
@@ -236,7 +237,7 @@ class WebPlayer extends Component{
                 </div>)
                 :
                 (<div>
-                    <h1>Please log in to use Medlify</h1>
+                    <h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>
                 </div>)
                 }
             </div>

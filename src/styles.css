@@ -130,9 +130,9 @@ body{
 }
 
 #songprogress {
-    width: 525px;
+    width: 18vw;
     position: absolute;
-    left: 285px;
+    left: 25%;
     bottom: 4px;
 
 }

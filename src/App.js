@@ -10,7 +10,7 @@ import SideNav from "./components/SideNav.js";
 import {Grid} from "react-bootstrap";
 import BottomMenu from "./components/BottomMenu";
 import {Route, MemoryRouter} from "react-router-dom";
-import WebPlayer from "./components/WebPlayer";
+import Login from './components/Login';
 
 
 class App extends Component {
@@ -33,6 +33,7 @@ class App extends Component {
                     </div>
                 </MemoryRouter>
                 <BottomMenu/>
+                <Login/>
 
             </Grid>
 
