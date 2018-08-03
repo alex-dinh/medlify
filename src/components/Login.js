@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import WebPlayer from "./WebPlayer";
 let querystring = require('querystring');
-import {connect} from 'react-redux';
 
 
 class Login extends Component {

@@ -1,24 +1,24 @@
 {
-  "name": "soundify",
+  "name": "medlify",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "npm": "^6.3.0",
+    "path": "^0.12.7",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-collapsible": "^2.2.0",
     "react-dom": "^16.4.1",
     "react-icons-kit": "^1.1.5",
-    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "semantic-ui-react": "^0.82.1",
     "spotify-web-api-js": "^0.24.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start | node authorization_code/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

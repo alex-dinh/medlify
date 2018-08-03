@@ -33,7 +33,6 @@ class App extends Component {
                     </div>
                 </MemoryRouter>
                 <BottomMenu/>
-                <Login/>
 
             </Grid>
 

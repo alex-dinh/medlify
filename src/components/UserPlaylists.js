@@ -113,7 +113,8 @@ class Playlists extends Component {
         let ids = this.state.playlists.ids;
         return (
             <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
-                <h2><a href='http://localhost:8888'>Playlists</a></h2>
+                {/*<h2><a href='http://localhost:8888'>Playlists</a></h2>*/}
+                <h2><a href='https://alex-dinh.github.io/medlify/login'>Playlists</a></h2>
                 {this.showPlaylists()}
             </div>
         );

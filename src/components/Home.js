@@ -13,12 +13,18 @@ class Home extends Component {
         const token = params.access_token; // resolve this
         if (token) {
             spotifyApi.setAccessToken(token);
+            this.token = token;
         }
         this.state = {
             loggedIn: token ? true : false,
             // loggedIn: !!token,
             nowPlaying: {name: 'Not Checked', albumArt: ''}
         }
+    }
+
+    componentDidMount() {
+        window.sessionStorage.setItem("token", this.token);
+
     }
 
     getHashParams() { //"function can be static"
@@ -48,7 +54,7 @@ class Home extends Component {
     render() {
         return (
             <div className="Home" style={{margin: "10px"}}>
-                <h2><a href='http://localhost:8888'>Soundify</a></h2>
+                <h2><a href='http://localhost:8888'>Medlify</a></h2>
                 <div>
                     Now Playing: { this.state.nowPlaying.name }
                 </div>
