@@ -1,9 +1,0 @@
-body{padding:50px;background-color:#fff;font-family:sans-serif}#container{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center}.inlineitems{display:inline-block;padding-top:10px;padding-bottom:10px}body,html{height:100%}
-
-
-/*!
- * Start Bootstrap - Simple Sidebar HTML Template (https://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */.sidebar{position:fixed;top:51px;bottom:0;left:0;z-index:1000;display:block;padding-left:20px;overflow-x:hidden;overflow-y:auto;background-color:#111;border-right:1px solid #eee;width:220px}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:rgba(255,119,0,.25)}::-webkit-scrollbar-thumb{background:#4caf50;border-radius:10px}body{overflow:hidden}#playlisttable{font-family:Trebuchet MS,Arial,Helvetica,sans-serif;border-collapse:collapse;width:1050px;table-layout:fixed;word-wrap:break-word;position:absolute;left:250px}#playlisttable td,#playlisttable th{border:1px solid #ddd;padding:8px;white-space:nowrap;width:350px}#playlisttable td:hover{color:#7b926d}#playlisttable tr:nth-child(2n){background-color:#f2f2f2}#playlisttable th{padding-top:12px;padding-bottom:12px;width:350px;text-align:center;background-color:#4caf50;color:#fff}#playlisttable thead{display:block}#playlisttable tbody{overflow:auto;height:60vh;display:block;position:absolute}.link{color:#d3d3d3}.link:hover{color:#fff}#userplaylists{font-family:Trebuchet MS,Arial,Helvetica,sans-serif}#player{color:#fff;font-family:Trebuchet MS,Helvetica,sans-serif;width:70vw;text-align:center}#songinfo{position:absolute;left:15px;text-align:left;padding:15px}#playerbutton{display:inline-block;position:absolute}#playerbutton :hover{color:#fff}#songprogress{width:525px;position:absolute;left:285px;bottom:4px}
-/*# sourceMappingURL=main.c0751a43.css.map*/
