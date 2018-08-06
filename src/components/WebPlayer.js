@@ -237,7 +237,8 @@ class WebPlayer extends Component{
                 </div>)
                 :
                 (<div>
-                    <h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>
+                    <h1><a href='https://medlify.herokuapp.com/login'>Please log in to use Medlify</a></h1>
+                    {/*<h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>*/}
                 </div>)
                 }
             </div>

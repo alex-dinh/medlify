@@ -15,7 +15,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = '80b1c9461b834255a24c4877f354c965'; // Your client id
 var client_secret = '3ee00face30e41adb3a0623f2d9a2fa9'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var redirect_uri = 'https://medlify.herokuapp.com/callback'; // Your redirect uri
 // var redirect_uri = 'https://alex-dinh.github.io/medlify/callback'; // Your redirect uri
 
 /**
