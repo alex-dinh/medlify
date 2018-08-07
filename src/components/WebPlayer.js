@@ -207,8 +207,8 @@ class WebPlayer extends Component{
                     {/*<h2>Now Playing</h2>*/}
                 </div>
 
-                {loggedIn ?
-                (<div id="player">
+                {/*{loggedIn ?*/}
+                <div id="player">
                     <div className="inlineitems" id="songinfo">
                         <img src={albumArt} style={{ height: 50 }}/>
                     </div>
@@ -216,7 +216,6 @@ class WebPlayer extends Component{
                     <div className="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>
                     <div>{trackName}</div>
                     <div>{artistName}</div>
-                    {/*<div>position:{position} / {duration} duration</div>*/}
 
                     </div>
                     <p className="inlineitems">
@@ -234,18 +233,16 @@ class WebPlayer extends Component{
                     </div>
                     </p>
                     <Progress id="songprogress" inverted color='green' percent={position/duration*100}/>
-                </div>)
-                :
-                (<div>
-                    <h1><a href='https://medlify.herokuapp.com/login'>Please log in to use Medlify</a></h1>
-                    {/*<h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>*/}
-                </div>)
+                </div>
+                // :
+                // (<div>
+                //     <h1><a href='https://medlify.herokuapp.com/login'>Please log in to use Medlify</a></h1>
+                //     {/*<h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>*/}
+                // </div>)
                 }
             </div>
         );
     }
 }
 
-// export default ({match: {params: {id}}}) =>
-//     <h1 style={{position: "fixed", top: "50%", bottom: "50%", marginTop: "-50px", marginLeft: "-100px"}}>{id}</h1>;
 export default WebPlayer;

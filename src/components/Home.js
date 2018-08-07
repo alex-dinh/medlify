@@ -53,23 +53,25 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="Home" style={{margin: "10px"}}>
-                <h2><a href='http://localhost:8888'>Medlify</a></h2>
-                <div>
-                    Now Playing: { this.state.nowPlaying.name }
-                </div>
-                <div>
-                    <img src={this.state.nowPlaying.albumArt} style={{ height: 150 }}/>
-                </div>
-                {this.state.loggedIn &&
-                    <button onClick={() => this.getNowPlaying()}>
-                        Check Now Playing
-                    </button>
-                }
-            </div>
+            <h1><a href='http://localhost:8888/'>Welcome to Medlify</a></h1>
         );
     }
 }
 
 
 export default Home;
+
+//<div className="Home" style={{margin: "10px"}}>
+//    <h2><a href='http://localhost:8888'>Medlify</a></h2>
+//    <div>
+//        Now Playing: { this.state.nowPlaying.name }
+//    </div>
+//    <div>
+//        <img src={this.state.nowPlaying.albumArt} style={{ height: 150 }}/>
+//    </div>
+//    {this.state.loggedIn &&
+//        <button onClick={() => this.getNowPlaying()}>
+//            Check Now Playing
+//        </button>
+//    }
+//</div>

@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "client": "react-scripts start"
+    "client": "react-scripts start",
+    "dev": "concurrently --kill-others-on-fail \"node testserver/app.js\" \"react-scripts start\""
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",

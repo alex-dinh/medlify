@@ -88,7 +88,7 @@ class Playlist extends Component{
     render(){
         return(
             <div>
-                <h1>Playlist title</h1>
+                {/*<h1>Playlist title</h1>*/}
                 <table id="playlisttable">
                     {this.props.name}
                     <tbody>

@@ -25,3 +25,4 @@ dir_to_ignore/.idea*
 *.xml
 *.iml
 package.json
+testserver*

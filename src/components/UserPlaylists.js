@@ -88,7 +88,6 @@ class Playlists extends Component {
         return(
             <div>
                 {/*Playlist: { this.state.playlists.names }*/}
-                {/*<Collapsible trigger="Playlists ◈">*/}
                 { this.state.playlists.names.map(function(playlist, i) {
                     return(
                         <PlaylistButton key = {"playlist" + i}
@@ -98,9 +97,6 @@ class Playlists extends Component {
                         // id should be renamed to something else
                     );
                 })}
-
-                {/*</Collapsible>*/}
-                {this.props.children}
             </div>
         );
     }
@@ -113,8 +109,8 @@ class Playlists extends Component {
         let ids = this.state.playlists.ids;
         return (
             <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
-                {/*<h2><a href='http://localhost:8888'>Playlists</a></h2>*/}
-                <h2><a href='http://localhost:8888/login'>Playlists</a></h2>
+                {/*<h2><a href='http://localhost:8888/login'>Playlists</a></h2>*/}
+                <h2 style={{color: 'white'}}>Playlists</h2>
                 {this.showPlaylists()}
             </div>
         );
