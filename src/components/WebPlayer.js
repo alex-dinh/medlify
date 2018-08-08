@@ -203,11 +203,6 @@ class WebPlayer extends Component{
 
         return(
             <div className="App">
-                <div className="App-header">
-                    {/*<h2>Now Playing</h2>*/}
-                </div>
-
-                {/*{loggedIn ?*/}
                 <div id="player">
                     <div className="inlineitems" id="songinfo">
                         <img src={albumArt} style={{ height: 50 }}/>
@@ -229,17 +224,11 @@ class WebPlayer extends Component{
                         }
                     </div>
                     <div className="inlineitems" style={{ color: '#ffa652', marginLeft: "70px"}} id="playerbutton">
-                        <SvgIcon size={40} icon={iosFastforward} onClick={() => this.getPlaybackProgress()}/>
+                        <SvgIcon size={40} icon={iosFastforward} onClick={() => this.onNextClick()}/>
                     </div>
                     </p>
                     <Progress id="songprogress" inverted color='green' percent={position/duration*100}/>
                 </div>
-                // :
-                // (<div>
-                //     <h1><a href='https://medlify.herokuapp.com/login'>Please log in to use Medlify</a></h1>
-                //     {/*<h1><a href='http://localhost:8888/'>Please log in to use Medlify</a></h1>*/}
-                // </div>)
-                }
             </div>
         );
     }

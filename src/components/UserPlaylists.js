@@ -94,7 +94,6 @@ class Playlists extends Component {
                                         url={"/playlist/"+playlist.playlistId}
                                         title={playlist.name}
                                         id={playlist.playlistId}/>
-                        // id should be renamed to something else
                     );
                 })}
             </div>
