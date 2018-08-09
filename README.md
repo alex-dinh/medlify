@@ -1,6 +1,15 @@
 # Medlify
-Solution to use both Spotify and Soundcloud playlists in the same place
+Music streaming application that supports libraries from multiple sources
 
-Important Links:
-https://nodejs.org/en/
-https://react-bootstrap.github.io/getting-started/introduction
+Completed Features:
+  - Spotify steaming
+
+
+Planned Features:
+  - Local file directory access
+  - SoundCloud streaming (SoundCloud API is current unavailable, sadly)
+
+
+Preview:
+
+![medlify](https://i.imgur.com/qfeebTd.png)
