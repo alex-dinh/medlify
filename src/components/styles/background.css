@@ -1,0 +1,47 @@
+.animatedbg {
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    background: linear-gradient(0deg, #ff0000, #004aff, #ffed00, #ff00d5, #00e7ff, #19ff00, #0e8e00, #ba6fee, #ff8900);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 35s ease infinite;
+    -moz-animation: Gradient 35s ease infinite;
+    animation: Gradient 35s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0 50%
+    }
+}
+

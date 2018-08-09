@@ -4,12 +4,12 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
 import {Progress} from 'semantic-ui-react';
+import './styles/background.css';
 
 const spotifyApi = new SpotifyWebApi();
 
-
 class NowPlaying extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         const params = this.getHashParams();
         const token = params.access_token;
@@ -36,7 +36,7 @@ class NowPlaying extends Component {
         let e, r = /([^&;=]+)=?([^&;]*)/g,
             q = window.location.hash.substring(1);
         e = r.exec(q);
-        while (e){
+        while (e) {
             hashParams[e[1]] = decodeURIComponent(e[2]);
             e = r.exec(q);
         }
@@ -51,23 +51,24 @@ class NowPlaying extends Component {
         clearInterval(this.interval);
     }
 
-    getPlaybackInfo(){
+    getPlaybackInfo() {
         spotifyApi.getMyCurrentPlaybackState()
             .then((response) => {
-                if (response.item) {
-                    this.setState({
-                        trackName: response.item.name,
-                        artistName: response.item.album.artists[0].name,
-                        albumArt: response.item.album.images[0].url,
-                        position: response.progress_ms,
-                        duration: response.item.duration_ms
-                    });
-                }}
+                    if (response.item) {
+                        this.setState({
+                            trackName: response.item.name,
+                            artistName: response.item.album.artists[0].name,
+                            albumArt: response.item.album.images[0].url,
+                            position: response.progress_ms,
+                            duration: response.item.duration_ms
+                        });
+                    }
+                }
             )
     }
 
 
-    render(){
+    render() {
         const {
             token,
             loggedIn,
@@ -81,19 +82,20 @@ class NowPlaying extends Component {
             playing,
         } = this.state;
 
-        return(
-            <div id="element" className="main-wrapper">
-                <div className="now-playing__img">
-                    <img src={albumArt}/>
-                </div>
-                <div className="now-playing__side">
-                <h1 style={{color: "white"}} className="now-playing__name">{trackName}</h1>
-                <h1 style={{color: "white"}} className="now-playing__artist">{artistName}</h1>
-                    {/*<div className="progress">*/}
+        return (
+            <div className='animatedbg'>
+                <div id="element" className="main-wrapper">
+                    <div className="now-playing__img">
+                        <img src={albumArt}/>
+                    </div>
+                    <div className="now-playing__side">
+                        <h1 style={{color: "white"}} className="now-playing__name">{trackName}</h1>
+                        <h1 style={{color: "white"}} className="now-playing__artist">{artistName}</h1>
+                        {/*<div className="progress">*/}
                         {/*<Progress id="songprogress" inverted color='green' percent={position/duration*100}/>*/}
-                    {/*</div>*/}
+                        {/*</div>*/}
+                    </div>
                 </div>
-                <div className="background"/>
             </div>
         );
     }

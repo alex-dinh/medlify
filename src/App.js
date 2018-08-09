@@ -25,7 +25,6 @@ class App extends Component {
                         <Route exact path ="/" component={Home}/>
                         <Route path="/playlists" component={Playlists}/>
                         <Route path="/nowplaying" component={NowPlaying}/>
-                        <Route path ="/zzzzz" render={() => <Playlist playlistId="4jYKMVG2SasaKq4y6385vA"/>}/>
                         <Route exact path ="/playlist/:id" render={props => <Playlist {...props}/>}/>
 
                     </div>
