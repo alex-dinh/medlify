@@ -9,11 +9,11 @@ import SideNav from "./components/SideNav.js";
 import {Grid} from "react-bootstrap";
 import BottomMenu from "./components/BottomMenu";
 import {Route, MemoryRouter} from "react-router-dom";
+import LocalFiles from './components/LocalFiles';
 
 
 class App extends Component {
     render(){
-
         return(
             <Grid fluid>
                 <MemoryRouter initialEntries={['/']} initialIndex={0}>
@@ -21,10 +21,10 @@ class App extends Component {
                         {/*Router in index allows route switching in main container*/}
                         <TopMenu/>
                         <SideNav ref="sn" player={this.player}/>
-                        {/*<WebPlayer/>*/}
-                        <Route exact path ="/" component={Home}/>
-                        <Route path="/playlists" component={Playlists}/>
+                        <Route exact path ="/" component={NowPlaying}/>
+                        <Route path="/home" component={Home}/>
                         <Route path="/nowplaying" component={NowPlaying}/>
+                        <Route path="/local" component={LocalFiles}/>
                         <Route exact path ="/playlist/:id" render={props => <Playlist {...props}/>}/>
 
                     </div>

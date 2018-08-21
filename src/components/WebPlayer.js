@@ -3,7 +3,6 @@ import SpotifyWebApi from "spotify-web-api-js";
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
 import {Progress} from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -109,8 +108,8 @@ class WebPlayer extends Component{
         if (state !== null) {
             const {
                 current_track: currentTrack,
-                position,
-                duration,
+                // position,
+                // duration,
             } = state.track_window;
 
             const trackName = currentTrack.name;
@@ -177,7 +176,7 @@ class WebPlayer extends Component{
     getPlaybackProgress() { // for progress bar
         spotifyApi.getMyCurrentPlaybackState()
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 if (response.item) {
                     this.setState({
                         position: response.progress_ms,
@@ -189,13 +188,13 @@ class WebPlayer extends Component{
 
     render(){
         const {
-            token,
-            loggedIn,
+            // token,
+            // loggedIn,
             artistName,
             trackName,
-            albumName,
+            // albumName,
             albumArt,
-            error,
+            // error,
             position,
             duration,
             playing,
@@ -205,7 +204,7 @@ class WebPlayer extends Component{
             <div className="App">
                 <div id="player">
                     <div className="inlineitems" id="songinfo">
-                        <img src={albumArt} style={{ height: 50 }}/>
+                        <img alt="" src={albumArt} style={{ height: 50 }}/>
                     </div>
 
                     <div className="inlineitems" id="songinfo" style={{left: "80px", paddingTop: "20px"}}>

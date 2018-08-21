@@ -8,7 +8,7 @@ class Home extends Component {
     constructor(){
         super();
         const params = this.getHashParams();
-        console.log(params);
+        // console.log(params);
 
         const token = params.access_token; // resolve this
         if (token) {
@@ -53,7 +53,7 @@ class Home extends Component {
 
     render() {
         return (
-            <h1><a href='http://localhost:8888/'>Welcome to Medlify</a></h1>
+            <h1><a href='http://localhost:8888/login'>Welcome to Medlify</a></h1>
         );
     }
 }

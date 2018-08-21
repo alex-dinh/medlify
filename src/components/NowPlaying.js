@@ -1,9 +1,7 @@
 // Library.js
 import React, {Component} from "react";
 import SpotifyWebApi from 'spotify-web-api-js';
-import SvgIcon from 'react-icons-kit';
-import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
-import {Progress} from 'semantic-ui-react';
+// import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
 import './styles/background.css';
 
 const spotifyApi = new SpotifyWebApi();
@@ -70,23 +68,23 @@ class NowPlaying extends Component {
 
     render() {
         const {
-            token,
-            loggedIn,
+            // token,
+            // loggedIn,
             artistName,
             trackName,
-            albumName,
+            // albumName,
             albumArt,
-            error,
-            position,
-            duration,
-            playing,
+            // error,
+            // position,
+            // duration,
+            // playing,
         } = this.state;
 
         return (
             <div className='animatedbg'>
                 <div id="element" className="main-wrapper">
                     <div className="now-playing__img">
-                        <img src={albumArt}/>
+                        <img alt="" src={albumArt}/>
                     </div>
                     <div className="now-playing__side">
                         <h1 style={{color: "white"}} className="now-playing__name">{trackName}</h1>

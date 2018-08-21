@@ -1,20 +1,18 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-
-.inlineitems{
+.inlineitems {
     display: inline-block;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-html, body{
-  height: 100%;
+html, body {
+    height: 100%;
 }
-
 
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (https://startbootstrap.com)
@@ -33,14 +31,22 @@ html, body{
     padding-left: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #111111;
-    border-right: 1px solid #eee;
+    /*background-color: #111111;*/
+    background-color: rgba(0, 0, 0, 0.8);
     width: 220px; /* Fixed width of sidebar */
+    /*border-right: 5px ridge #1db954;*/
+}
+
+.top-to-bottom {
+    border-right: 5px ridge rgba(0, 0, 0, 0.5);
+    /*border-image:*/
+    /*linear-gradient(to bottom, #ff7700, #1db954) 1 100%;*/
 }
 
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: rgba(255, 119, 0, 0.25);
 }
@@ -51,8 +57,8 @@ html, body{
     border-radius: 10px;
 }
 
-body{
-    overflow:hidden;
+body {
+    overflow: hidden;
 }
 
 #playlisttable {
@@ -61,7 +67,7 @@ body{
     border-collapse: collapse;
     width: 82vw;
     table-layout: fixed;
-    word-wrap:break-word;
+    word-wrap: break-word;
     position: absolute;
     left: 250px;
 }
@@ -78,7 +84,9 @@ body{
     color: #7b926d;
 }
 
-#playlisttable tr:nth-child(even){background-color: #f2f2f2;}
+#playlisttable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
 #playlisttable th {
     padding-top: 12px;
@@ -101,11 +109,14 @@ body{
 }
 
 .link {
-  color: lightgrey;
+    text-decoration: none;
+    color: white;
 }
+
 .link:hover {
-   color: #FFF
+    color: #ff7700
 }
+
 
 #userplaylists {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -144,57 +155,60 @@ body{
     margin-right: auto;
     margin-top: 60px;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 /*Now playing styling*/
 .now-playing__name {
-  font-size: 1.5em;
-  margin-bottom: 0.2em;
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
 }
 
 .now-playing__artist {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .now-playing__status {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .now-playing__img {
-  float: left;
-  margin-right: 10px;
-  text-align: right;
-  width: 45%;
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 45%;
 }
 
 .now-playing__img img {
-  max-width: 80vmin;
-  width: 100%;
+    max-width: 80vmin;
+    width: 100%;
 }
 
 .now-playing__side {
-  margin-left: 5%;
-  width: 45%;
+    margin-left: 5%;
+    width: 45%;
 }
 
 /** Progress **/
 .progress {
-  border: 0.15em solid rgba(255, 255, 255, 0.7);
-  border-radius: 10em;
-  padding: 0.2em;
+    border: 0.15em solid rgba(255, 255, 255, 0.7);
+    border-radius: 10em;
+    padding: 0.2em;
 }
 
 /** Background **/
 .background {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center center;
-  filter: opacity(0.15);
-  position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    filter: opacity(0.15);
+    position: absolute;
 }
 
 .main-wrapper {
@@ -204,22 +218,25 @@ body{
     margin: 0 auto;
     justify-content: center;
     position: absolute;
-    top: 20%; left: 250px; bottom: 0; right: 0;
+    top: 20%;
+    left: 250px;
+    bottom: 0;
+    right: 0;
     width: 50%;
     z-index: 1;
     background-color: #2e2e2e;
-    background-color: rgba(0, 0, 0,.25);
+    background-color: rgba(0, 0, 0, .25);
 }
 
 @media all and (max-width: 980px) {
-    #element{
+    #element {
         margin-left: 0;
         left: 250px;
     }
 }
 
 .main-container {
-  flex: 1;
+    flex: 1;
 }
 
 

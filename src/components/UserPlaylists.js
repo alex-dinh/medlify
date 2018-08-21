@@ -1,7 +1,7 @@
 // Playlists.js
 import React, {Component} from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -9,11 +9,11 @@ class PlaylistButton extends Component {
     render(){
         return(
             <div>
-                <Link to={this.props.url}
-                      style={{ textDecoration: 'none' }}
-                      className="link">
+                <NavLink to={this.props.url}
+                         activeStyle={{ color: '#ff7700', textDecoration: 'none' }}
+                         className="link">
                     {this.props.title}
-                </Link>
+                </NavLink>
             </div>
 
         );
@@ -24,7 +24,7 @@ class Playlists extends Component {
     constructor(){
         super();
         const params = this.getHashParams();
-        console.log(params);
+        // console.log(params);
         const token = params.access_token;
         if (token) {
             spotifyApi.setAccessToken(token);
@@ -60,7 +60,7 @@ class Playlists extends Component {
                     playlists: {
                         // name: response.items[0].name,
                         names: this.buildPlaylistInfo(response),
-                        playlistArt: response.items[0].images[0].url,
+                        playlistArt: response.items[0].images[0],
                         // playlistArt: this.playlistCovers(response)
                     }
                 })
@@ -72,6 +72,7 @@ class Playlists extends Component {
         for (let i = 0; i < response.items.length; i++){
             playlists.push({id: i, name: response.items[i].name, playlistId: response.items[i].id})
         }
+        console.log(playlists);
         return playlists;
         // ids stored in this.state.playlists.names[i].playlistId
     }
@@ -105,7 +106,7 @@ class Playlists extends Component {
     };
 
     render() {
-        let ids = this.state.playlists.ids;
+        // let ids = this.state.playlists.ids;
         return (
             <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
                 {/*<h2><a href='http://localhost:8888/login'>Playlists</a></h2>*/}

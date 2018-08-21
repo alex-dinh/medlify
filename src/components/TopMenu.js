@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {Navbar, MenuItem, NavDropdown, Nav, NavItem} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Navbar, Nav, NavItem} from "react-bootstrap";
+import {NavLink} from "react-router-dom";
 import {Button} from 'semantic-ui-react';
 
 
@@ -10,7 +10,9 @@ class TopMenu extends Component {
             <Navbar inverse fixedTop style={{borderBottom: "5px ridge #ff7700"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/" className="link">Medlify</Link>
+                        <NavLink to="/home" className="link" activeStyle={{ color: '#ff7700', textDecoration: 'none' }}>
+                            Medlify
+                        </NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
@@ -22,7 +24,9 @@ class TopMenu extends Component {
                     {/*</NavItem>*/}
 
                     <NavItem eventKey={2} href="#">
-                        <Link to="/nowplaying" className="link">Now Playing</Link>
+                        <NavLink to="/nowplaying" className="link" activeStyle={{ color: '#ff7700', textDecoration: 'none' }}>
+                            Now Playing
+                        </NavLink>
                     </NavItem>
 
 
