@@ -10,7 +10,10 @@ class TopMenu extends Component {
             <Navbar inverse fixedTop style={{borderBottom: "5px ridge #ff7700"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <NavLink to="/home" className="link" activeStyle={{ color: '#ff7700', textDecoration: 'none' }}>
+                        <NavLink to="/home"
+                                 className="link"
+                                 style={{color: 'white'}}
+                                 activeStyle={{ color: '#ff7700', textDecoration: 'none' }}>
                             Medlify
                         </NavLink>
                     </Navbar.Brand>

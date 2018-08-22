@@ -80,12 +80,18 @@ body {
     /*overflow: hidden;*/
 }
 
-#playlisttable td:hover {
-    color: #7b926d;
+#playlisttable tr:hover {
+    color: white;
+    background-color: #ff7700;
+    cursor: default;
 }
 
 #playlisttable tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+#playlisttable tr:nth-child(even):hover {
+    background-color: #ff7700;
 }
 
 #playlisttable th {
@@ -114,7 +120,7 @@ body {
 }
 
 .link:hover {
-    color: #ff7700
+    color: #00b30a
 }
 
 

@@ -102,9 +102,9 @@ class Playlist extends Component{
                     { this.state.tracks.map((song, i) => (
                             <tr>
                                 <td onClick={() => this.playSong(song.uri)} key={"name"+i}>{song.name}</td>
-                                <td key={"artist"+i}>{song.artist}</td>
-                                <td key={"song"+i}>{song.album}</td>
-                                <td key={"length"+i}>{Playlist.formatTrackLength(song.duration)}</td>
+                                <td onClick={() => this.playSong(song.uri)} key={"artist"+i}>{song.artist}</td>
+                                <td onClick={() => this.playSong(song.uri)} key={"song"+i}>{song.album}</td>
+                                <td onClick={() => this.playSong(song.uri)} key={"length"+i}>{Playlist.formatTrackLength(song.duration)}</td>
                             </tr>
                     ))}
                     </tbody>
