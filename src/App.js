@@ -21,7 +21,8 @@ class App extends Component {
                         {/*Router in index allows route switching in main container*/}
                         <TopMenu/>
                         <SideNav ref="sn" player={this.player}/>
-                        <Route exact path ="/" component={NowPlaying}/>
+                        {/*<Route exact path ="/" component={NowPlaying}/>*/}
+                        <Route exact path ="/" component={LocalFiles}/>
                         <Route path="/home" component={Home}/>
                         <Route path="/nowplaying" component={NowPlaying}/>
                         <Route path="/local" component={LocalFiles}/>

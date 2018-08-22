@@ -9,3 +9,9 @@
     margin-bottom: 30px;
     display: table;
 }
+
+.localplayer {
+    width: 40vw;
+    display: table-cell;
+    margin: 0 auto;
+}

@@ -106,10 +106,8 @@ class Playlists extends Component {
     };
 
     render() {
-        // let ids = this.state.playlists.ids;
         return (
             <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
-                {/*<h2><a href='http://localhost:8888/login'>Playlists</a></h2>*/}
                 <h2 style={{color: 'white'}}>Playlists</h2>
                 {this.showPlaylists()}
             </div>
