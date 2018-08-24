@@ -201,7 +201,7 @@ class WebPlayer extends Component{
         } = this.state;
 
         return(
-            <div className="App">
+            <div className="App" style={{width: '50vw'}}>
                 <div id="player">
                     <div className="inlineitems" id="songinfo">
                         <img alt="" src={albumArt} style={{ height: 50 }}/>

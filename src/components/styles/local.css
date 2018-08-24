@@ -8,7 +8,9 @@
     height: 50vh;
 }
 
-.localplayer {
+
+
+#localplayer {
     width: 40vw;
     display: table-cell;
     margin: 0 auto;
@@ -18,7 +20,6 @@
     height: 60vh;
     margin-top: 20px;
 }
-
 
 #filetable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

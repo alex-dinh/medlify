@@ -1,0 +1,51 @@
+audio {
+    background-color: #ff7700;
+}
+
+#playerdiv {
+    text-align: center;
+    background-color: #323232;
+}
+
+#localplayer {
+    color: #FFFFFF;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+    display: inline-block;
+}
+
+#localplayerbutton {
+    text-decoration: none;
+    box-sizing: border-box;
+    text-align: center;
+    color: orange;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#localplayerbutton:hover {
+    color: #23d5ab;
+}
+
+#localsongprogress {
+    /*background: black;*/
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 7px;
+    width: 30vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.time {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
