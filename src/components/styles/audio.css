@@ -12,6 +12,8 @@ audio {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     text-align: center;
     display: inline-block;
+    background-color: #222222;
+    width: 100%;
 }
 
 #localplayerbutton {
@@ -23,8 +25,8 @@ audio {
     display: inline-block;
 }
 
-#localplayerbutton:hover {
-    color: #23d5ab;
+#localplayerbutton :hover {
+    color: white;
 }
 
 #localsongprogress {

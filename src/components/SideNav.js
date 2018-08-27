@@ -46,7 +46,7 @@ class SideNav extends Component {
 
     render() {
         return (
-            <div style={{overflow: ''}} id="wrapper" >
+            <div style={{overflow: '', zIndex: '998 ', position: 'absolute'}} id="wrapper" >
                 {this.getSideBar()}
             </div>
         );

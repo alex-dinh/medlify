@@ -22,7 +22,7 @@ class App extends Component {
                         <TopMenu/>
                         <SideNav ref="sn" player={this.player}/>
                         {/*<Route exact path ="/" component={NowPlaying}/>*/}
-                        <Route exact path ="/" component={LocalFiles}/>
+                        <Route exact path ="/" component={NowPlaying}/>
                         <Route path="/home" component={Home}/>
                         <Route path="/nowplaying" component={NowPlaying}/>
                         <Route path="/local" component={LocalFiles}/>

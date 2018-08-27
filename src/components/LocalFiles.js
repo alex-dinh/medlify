@@ -120,7 +120,6 @@ class Player extends Component {
                         <SvgIcon size={40} icon={iosFastforward} onClick={this.props.onNext}/>
                     </div>
                     <Progress id="localsongprogress"
-                              inverted
                               color='green'
                               percent={this.state.progress * 100}
                               // onMouseDown={this.startSetProgress.bind(this)}

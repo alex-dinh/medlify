@@ -8,12 +8,15 @@
     height: 50vh;
 }
 
-
-
 #localplayer {
     width: 40vw;
     display: table-cell;
     margin: 0 auto;
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
 }
 
 #localgrid {

@@ -7,7 +7,7 @@ import WebPlayer from './WebPlayer';
 class BottomMenu extends Component {
     render() {
         return (
-            <Navbar inverse fixedBottom style={{borderTop: "5px ridge #1db954", height: "80px"}}>
+            <Navbar inverse fixedBottom style={{borderTop: "5px ridge #1db954", height: "80px", zIndex: '999', position: 'absolute'}}>
                 <div><WebPlayer/></div>
             </Navbar>
         );
