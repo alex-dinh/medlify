@@ -87,13 +87,13 @@ class Playlist extends Component{
 
     render(){
         return(
-            <div>
+            <div id="plcontainer">
                 {/*<h1>Playlist title</h1>*/}
                 <table id="playlisttable">
                     {this.props.name}
                     <tbody>
                         <tr>
-                            <th onClick={() => this.playSong()}>Song</th>
+                            <th onClick={() => this.playSong()}>Title</th>
                             <th>Artist</th>
                             <th>Album</th>
                             <th>Track Length</th>

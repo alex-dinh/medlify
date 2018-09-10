@@ -61,22 +61,24 @@ body {
     overflow: hidden;
 }
 
+#plcontainer {
+    position: absolute;
+    top: 54px; left: 219px; right: 0; bottom: 80px;
+}
+
 #playlisttable {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 82vw;
     table-layout: fixed;
     word-wrap: break-word;
-    position: absolute;
-    left: 250px;
 }
 
 #playlisttable td, #playlisttable th {
     border: 1px solid #ddd;
     padding: 8px;
     white-space: nowrap;
-    width: 25vw;
+    width: 25%;
     /*overflow: hidden;*/
 }
 
@@ -97,7 +99,7 @@ body {
 #playlisttable th {
     padding-top: 12px;
     padding-bottom: 12px;
-    width: 25vw;
+    width: 25%;
     text-align: center;
     background-color: #4CAF50;
     color: white;
@@ -109,7 +111,8 @@ body {
 
 #playlisttable tbody {
     overflow: auto;
-    height: 75vh;
+    height: 100%;
+    width: 100%;
     display: block;
     position: absolute;
 }
