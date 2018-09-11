@@ -108,7 +108,9 @@ class Playlists extends Component {
     render() {
         return (
             <div className="Playlists" style={{margin: "10px", overflowY: "auto", maxHeight: "60vh"}}>
-                <h2 style={{color: 'white'}}>Playlists</h2>
+                <h1 style={{color: 'white'}}>Playlists</h1>
+                <hr style={{margin: 0}}/>
+                <h2 style={{color: 'white'}}>Spotify</h2>
                 {this.showPlaylists()}
             </div>
         );

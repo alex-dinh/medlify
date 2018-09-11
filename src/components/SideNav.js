@@ -4,6 +4,7 @@ import React, {Component} from "react";
 // import {ic_aspect_ratio} from "react-icons-kit/md/ic_aspect_ratio";
 import {Nav, NavItem} from "react-bootstrap";
 import Playlists from './UserPlaylists.js'
+import SCPlaylists from './soundcloud/SCUserPlaylists.js'
 import {NavLink} from 'react-router-dom';
 
 
@@ -33,11 +34,14 @@ class SideNav extends Component {
             <div className="sidebar">
                 <ul className="nav nav-sidebar">
                     <Playlists ref="pl"/>
+                    <SCPlaylists ref="pl"/>
                     <h2 style={{color: 'white', margin: "10px"}}>
                         <NavLink to='/local' className="link" activeStyle={{ color: '#ff7700', textDecoration: 'none' }}>
                             Local Files
                         </NavLink>
                     </h2>
+
+
 
                 </ul>
             </div>
