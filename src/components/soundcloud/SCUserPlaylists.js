@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import soundcloud from 'soundcloud';
 import '../styles/soundcloud.css';
 import axios from 'axios';
 import {NavLink} from "react-router-dom";
@@ -35,7 +34,7 @@ export default class SCUserPlaylists extends Component {
 
 
     getPlaylists() {
-        axios.get('http://api.soundcloud.com/users/80lux/playlists?client_id=ueCJznjk0tvGY5Jok607pqOtHiFEKjIR')
+        axios.get('https://api.soundcloud.com/users/80lux/playlists?client_id=ueCJznjk0tvGY5Jok607pqOtHiFEKjIR')
             .then((response) => { // promise returns: require arrow functions to work properly
                 console.log(response.data);
                 this.setState({
@@ -72,7 +71,6 @@ export default class SCUserPlaylists extends Component {
 
     render() {
         return(
-            // <div className='sc-container'>
             <div>
                 {/*<form className='sc-form'>*/}
                     {/*SoundCloud Username:*/}

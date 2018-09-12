@@ -61,7 +61,7 @@ class NowPlaying extends Component {
                             duration: response.item.duration_ms
                         });
                     }
-                    console.log(response);
+                    // console.log(response);
                 }
             )
     }

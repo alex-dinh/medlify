@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SpotifyWebApi from "spotify-web-api-js";
+import SpotifyWebApi from 'spotify-web-api-js';
 import SvgIcon from 'react-icons-kit';
 import {iosPlay, iosRewind, iosFastforward, iosPause} from 'react-icons-kit/ionicons/';
 import {Progress} from 'semantic-ui-react';
@@ -49,7 +49,7 @@ class WebPlayer extends Component{
         // run repeatedly until SDK is ready
         const {token} = this.state;
 
-        if (window.Spotify !== null) {
+        if (window.Spotify.Player !== null) {
             // cancel the interval
             clearInterval(this.playerCheckInterval);
 

@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import SoundCloudAudio from 'soundcloud-audio';
+
 
 export default class SCPlaylist extends Component {
     constructor(props) {
         super(props);
         this.state = {
             tracks: [],
-            track_uris: []
+            stream_urls: []
         };
+        this.scPlayer = new SoundCloudAudio('ueCJznjk0tvGY5Jok607pqOtHiFEKjIR');
+        // Is it a good idea to initialize a new player every time a playlist is loaded?
     }
 
     componentDidMount(){
@@ -21,8 +25,7 @@ export default class SCPlaylist extends Component {
     }
 
     getPlaylistInfo() {
-        let pl_name = this.props.match.params.id;
-        axios.get('http://api.soundcloud.com/playlists/'+ this.props.match.params.id +'?client_id=ueCJznjk0tvGY5Jok607pqOtHiFEKjIR')
+        axios.get('https://api.soundcloud.com/playlists/'+ this.props.match.params.id +'?client_id=ueCJznjk0tvGY5Jok607pqOtHiFEKjIR')
             .then((response) => {
                 this.setState({
                     tracks: SCPlaylist.buildTrackList(response),
@@ -38,7 +41,8 @@ export default class SCPlaylist extends Component {
                 id: i,
                 title: response.data.tracks[i].title,
                 artist: response.data.tracks[i].user.username,
-                duration: response.data.tracks[i].duration
+                duration: response.data.tracks[i].duration,
+                trackId: response.data.tracks[i].id
             })
         }
         return tracks;
@@ -53,6 +57,17 @@ export default class SCPlaylist extends Component {
             return minutes.toString() + ':' + seconds.toString();
         }
     }
+
+    playSCTrack(trackId) {
+        this.scPlayer.play({streamUrl: 'https://api.soundcloud.com/tracks/' + trackId + '/stream'})
+            .then((response) => {})
+        // html5 audio play() and pause() now return promises, so .then() must be used
+    }
+
+    pauseSCTrack() {
+        this.scPlayer.pause();
+    }
+
 
     render() {
         return(
@@ -69,10 +84,10 @@ export default class SCPlaylist extends Component {
                     </tr>
                     { this.state.tracks.map((song, i) => (
                         <tr>
-                            <td key={"name"+i}>{song.title}</td>
-                            <td key={"artist"+i}>{song.artist}</td>
-                            <td key={"song"+i}>{song.album}</td>
-                            <td key={"length"+i}>{SCPlaylist.formatTrackLength(song.duration)}</td>
+                            <td onClick={() => this.playSCTrack(song.trackId)} key={"track"+i}>{song.title}</td>
+                            <td onClick={() => this.playSCTrack(song.trackId)} key={"uploader"+i}>{song.artist}</td>
+                            <td onClick={() => this.playSCTrack(song.trackId)} key={"album"+i}>{song.album}</td>
+                            <td onClick={() => this.playSCTrack(song.trackId)} key={"duration"+i}>{SCPlaylist.formatTrackLength(song.duration)}</td>
                         </tr>
                     ))}
                     </tbody>
